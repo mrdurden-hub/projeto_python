@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{%block titulo%}Cadastro | {%endblock%}
+
+{% block conteudo %}
+<h1>Cadastro</h1>
+
+<form method="post" action="{% url 'cadastro' %}">
+    {% csrf_token %}
+    {% include 'parciais/_messages.html' %}
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nome</label>
+        <input type="text" name="nome" value="{{request.POST.nome}}" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Sobrenome</label>
+        <input type="text" name="sobrenome" value="{{request.POST.sobrenome}}" class="form-control"
+            id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" name="email" value="{{request.POST.email}}" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Usuário</label>
+        <input type="text" name="usuario" value="{{request.POST.usuario}}" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Senha</label>
+        <input type="password" name="senha" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Repetir senha</label>
+        <input type="password" name="senha2" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+{% endblock %}
